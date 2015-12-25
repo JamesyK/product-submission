@@ -1,2 +1,75 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div>
+	<div class="SlideShowWidget clearfix colelem" id="slideshowu705"><!-- none box -->
+	 	<div class="popup_anchor" id="u721popup">
+			<div class="SlideShowContentPanel clearfix" id="u721"><!-- stack box -->
+				<% idnum = 722 %>
+	 			<% @product.productimages.each do |i| %>
+	 				<div class="SSSlide clip_frame clearfix grpelem" id="u<%= idnum %>"><!-- image -->
+						<div id="u<%= idnum %>_clip">
+			 				<img class="ImageInclude position_content" id="u<%= idnum %>_img" data-src="<%= i.image.url(:large) %>" src=<%= asset_path "blank.gif" %> alt="" data-width="403" data-height="500"/>
+						</div>
+		 			</div>
+		 			<% idnum += 2 %>
+	 			<% end %>
+			</div>
+		</div>
+
+		<div class="popup_anchor" id="u736popup">
+			<div class="SSSlideLinks clearfix" id="u736"><!-- horizontal-rows box -->
+				<% thumbnum = 739 %>
+				<% @product.productimages.each do |i| %>
+					<div class="SSSlideLink clip_frame grpelem" id="u<%= thumbnum %>"><!-- image -->
+						<img class="block" id="u<%= thumbnum %>_img" src=<%= i.image.url(:thumb) %> alt="" width="60" height="45" overflow="hidden" />
+					</div>
+					<% thumbnum += 2 %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="Product-Title-01 clearfix colelem" id="u786-4"><!-- content -->
+		<h2><%= @product.brand %></h2>
+	</div>
+	<div class="Product-Title-02 clearfix colelem" id="u788-5"><!-- content -->
+		<p id="u788-3"><span id="u788"><%= @product.name %> </span><span id="u788-2">(<%= @product.sku %>)</span></p>
+	</div>
+	<div class="Product-Title-02 clearfix colelem" id="u787-4"><!-- content -->
+		<p><%= number_to_currency(@product.price, unit: "$", precision: 2) %></p>
+	</div>
+	<div class="clearfix colelem" id="pu792"><!-- group -->
+		<div class="rounded-corners grpelem" id="u792"><!-- simple frame --></div>
+		<div class="rounded-corners grpelem" id="u789"><!-- simple frame --></div>
+		<div class="rounded-corners grpelem" id="u790"><!-- simple frame --></div>
+		<div class="rounded-corners grpelem" id="u791"><!-- simple frame --></div>
+	</div>
+	<div class="clearfix colelem" id="u793-4"><!-- content -->
+		<p>green</p>
+	</div>
+	<div class="clearfix colelem" id="pu794-4"><!-- group -->
+		<div class="rounded-corners clearfix grpelem" id="u794-4"><!-- content -->
+			<p class="Form-Title-01" id="u794-2">Click to select a size</p>
+		</div>
+		<div class="clearfix grpelem" id="u813-4"><!-- content -->
+			<p><span id="u813">Size Guide</span></p>
+		</div>
+	</div>
+
+	<div class="clearfix colelem" id="pu959"><!-- group -->
+		<div class="clip_frame grpelem" id="u959"><!-- image -->
+			<img class="block" id="u959_img" src=<%= asset_path "heart2.png" %> alt="" width="25" height="22"/>
+	 	</div>
+	 	<div class="clip_frame grpelem" id="u821"><!-- image -->
+			<img class="block" id="u821_img" src=<%= asset_path "pinterest-2.png" %> alt="" width="25" height="25"/>
+	 	</div>
+	 	<div class="clip_frame grpelem" id="u833"><!-- image -->
+			<img class="block" id="u833_img" src=<%= asset_path "add-to-bag-normal.png" %> alt="" width="100" height="25"/>
+	 	</div>
+	</div>
+
+	<ul class="AccordionWidget clearfix colelem" id="accordionu795"><!-- vertical box -->
+	 <li class="AccordionPanel clearfix colelem" id="u804"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u807-4"><!-- content --><h2>description</h2></div><div class="AccordionPanelContent clearfix colelem" id="u805"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u806-4"><!-- content --><p><%= @product.description %></p></div></div></li>
+	 <li class="AccordionPanel clearfix colelem" id="u796"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u797-4"><!-- content --><h2>shipping and return policy</h2></div><div class="AccordionPanelContent disn clearfix colelem" id="u798"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u799-4"><!-- content --><p>Sed velit congue viverra. Sed porta mattis luctus. Curabitur feugiat pharetra sem eu iaculis. Phasellus venenatis volutpat arcu id placerat. Aliquam fringilla ligula eu purus lacinia at volutpat nunc malesuada. Nunc a augue ac orci tempus commodo.</p></div></div></li>
+	 <li class="AccordionPanel clearfix colelem" id="u800"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u803-4"><!-- content --><h2>about the designer</h2></div><div class="AccordionPanelContent disn clearfix colelem" id="u801"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u802-4"><!-- content --><p>Tortor, eget ornare urna. Duis varius tellus eros. Donec odio arcu, rutrum ac rutrum eget, bibendum ac enim. Phasellus hendrerit iaculis purus. Aliquam sit amet molestie odio. Sed commodo dictum consequat aenean in est. Donec odio arcu, rutrum.</p></div></div></li>
+	</ul>
+</div>

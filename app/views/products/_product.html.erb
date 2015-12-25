@@ -1,0 +1,8 @@
+<% @products.each do |p| %>
+	<!-- Image with link -->
+
+	<h2><%= link_to p.name, product_path(p) %></h2>
+	<h3><%= p.brand %></h3>
+	<h3><%= number_to_currency(p.price, unit: "$", precision: 2) %></h3>
+	<h4><%= p.sku %></h4>
+<% end %>

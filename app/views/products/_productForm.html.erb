@@ -1,0 +1,43 @@
+<div id="form-position">
+	<%= form_for @product, html: { multipart: true } do |f| %>
+
+		<% if @product.errors.any? %>
+			<div>
+				<%= pluralize(@product.errors.count, "error") %> prevented this product from being submitted:
+				<ul>
+					<% @product.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<div class="product-form-div">
+			<%= f.label :brand, class: "brand-label" %><br>
+			<%= f.text_field :brand %>
+		</div>
+		<div class="product-form-div">
+			<%= f.label :name, class: "name-label" %><br>
+			<%= f.text_field :name %>
+		</div>
+		<div class="product-form-div">
+			<%= f.label :price, class: "price-label" %><br>
+			<%= f.text_field :price %>
+		</div>
+		<div class="product-form-div">
+			<%= f.label :sku, class: "sku-label" %><br>
+			<%= f.text_field :sku %>
+		</div>
+		<div class="product-form-div">
+			<%= f.label :description, class: "description-label" %><br>
+			<%= f.text_area :description, rows: 3 %>
+		</div>
+		<div class="product-form-div">
+			<%= f.label :images, "Add Images", class: "image-label" %>
+			<%= file_field_tag "images[]", type: :file, multiple: true %>
+		</div>
+		<div class="product-form-div">
+			<%= f.submit "Submit", class: "product-submit" %>
+		</div>
+	<% end %>
+</div>
