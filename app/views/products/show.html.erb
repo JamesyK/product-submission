@@ -52,7 +52,10 @@
 	</div>
 	<div class="clearfix colelem" id="pu794-4"><!-- group -->
 		<div class="rounded-corners clearfix grpelem" id="u794-4"><!-- content -->
-			<p class="Form-Title-01" id="u794-2">Click to select a size</p>
+			<p class="Form-Title-01 size-select" id="u794-2">Click to select a size</p>
+			<% @product.sizes.each do |i| %>
+				<p class="hidden size-select size-option"><%= i.label %></p>
+			<% end %>
 		</div>
 		<div class="clearfix grpelem" id="u813-4"><!-- content -->
 			<p><span id="u813">Size Guide</span></p>
@@ -136,6 +139,13 @@
 			$('#u734').fadeIn();
 			$('#u734').parent().children('div:not(:nth-child(7))').fadeOut();
 		});
-	});
 
+		$('#u794-2').on('click', function(){
+			$(this).parent().children().slideDown();
+		});
+
+		$('.size-option').on('click', function(){
+			$(this).siblings('.size-select').toggle('fast');
+		});
+	});
 </script>

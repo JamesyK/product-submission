@@ -784,6 +784,7 @@
 	width: 0.01px;
 	margin-left: 721px;
 	margin-top: -353px;
+	cursor: pointer;
 }
 
 #u794-4
@@ -831,12 +832,12 @@
 {
 	width: 0.01px;
 	margin-left: 719px;
-	margin-top: -305px;
+	margin-top: -250px;
 }
 
 #u959
 {
-	z-index: 153;
+	z-index: 100;
 	width: 25px;
 	background-color: transparent;
 	position: relative;
@@ -871,7 +872,7 @@
 	border-color: #7F7F7F;
 	background-color: transparent;
 	margin-left: 711px;
-	top: -250px;
+	top: -220px;
 	margin-bottom: -250px;
 	position: relative;
 }
