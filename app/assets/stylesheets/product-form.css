@@ -88,6 +88,11 @@ input[type="file"] {
 	cursor: pointer;
 }
 
+.paperclip-label:hover {
+	font-weight: bold;
+	border-width: 2px; 
+}
+
 #product-submit {
 	padding: 10px;
 	width: 100%;
@@ -96,6 +101,11 @@ input[type="file"] {
 	background-color: #9DC6D8;
 	margin-left: 10px;
 	margin-top: 15px;
+	cursor: pointer;
+}
+
+#product-submit:hover {
+	border: 2px black solid;
 }
 
 .product-form-title {
