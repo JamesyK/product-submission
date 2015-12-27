@@ -3,12 +3,14 @@
 	 	<div class="popup_anchor" id="u721popup">
 			<div class="SlideShowContentPanel clearfix" id="u721"><!-- stack box -->
 				<% idnum = 722 %>
+				<% largeImageIndex = 0 %>
 	 			<% @product.productimages.each do |i| %>
 	 				<div class="SSSlide clip_frame clearfix grpelem" id="u<%= idnum %>"><!-- image -->
 						<div id="u<%= idnum %>_clip">
-			 				<img class="ImageInclude position_content" id="u<%= idnum %>_img" data-src="<%= i.image.url(:large) %>" src=<%= asset_path "blank.gif" %> alt="" data-width="403" data-height="500"/>
+			 				<img class="ImageInclude position_content l-index-<%= largeImageIndex %>" id="u<%= idnum %>_img" src=<%= i.image.url(:large) %> alt="" data-width="403" data-height="500"/>
 						</div>
 		 			</div>
+		 			<% largeImageIndex += 1 %>
 		 			<% idnum += 2 %>
 	 			<% end %>
 			</div>
@@ -17,16 +19,17 @@
 		<div class="popup_anchor" id="u736popup">
 			<div class="SSSlideLinks clearfix" id="u736"><!-- horizontal-rows box -->
 				<% thumbnum = 739 %>
+				<% thumbImageIndex = 0 %>
 				<% @product.productimages.each do |i| %>
 					<div class="SSSlideLink clip_frame grpelem" id="u<%= thumbnum %>"><!-- image -->
-						<img class="block" id="u<%= thumbnum %>_img" src=<%= i.image.url(:thumb) %> alt="" width="60" height="45" overflow="hidden" />
+						<img class="block t-index-<%= thumbImageIndex %>" id="u<%= thumbnum %>_img" src=<%= i.image.url(:thumb) %> />
 					</div>
+					<% thumbImageIndex += 1 %>
 					<% thumbnum += 2 %>
 				<% end %>
 			</div>
 		</div>
 	</div>
-
 
 	<div class="Product-Title-01 clearfix colelem" id="u786-4"><!-- content -->
 		<h2><%= @product.brand %></h2>
@@ -68,8 +71,71 @@
 	</div>
 
 	<ul class="AccordionWidget clearfix colelem" id="accordionu795"><!-- vertical box -->
-	 <li class="AccordionPanel clearfix colelem" id="u804"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u807-4"><!-- content --><h2>description</h2></div><div class="AccordionPanelContent clearfix colelem" id="u805"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u806-4"><!-- content --><p><%= @product.description %></p></div></div></li>
-	 <li class="AccordionPanel clearfix colelem" id="u796"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u797-4"><!-- content --><h2>shipping and return policy</h2></div><div class="AccordionPanelContent disn clearfix colelem" id="u798"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u799-4"><!-- content --><p>Sed velit congue viverra. Sed porta mattis luctus. Curabitur feugiat pharetra sem eu iaculis. Phasellus venenatis volutpat arcu id placerat. Aliquam fringilla ligula eu purus lacinia at volutpat nunc malesuada. Nunc a augue ac orci tempus commodo.</p></div></div></li>
-	 <li class="AccordionPanel clearfix colelem" id="u800"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u803-4"><!-- content --><h2>about the designer</h2></div><div class="AccordionPanelContent disn clearfix colelem" id="u801"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u802-4"><!-- content --><p>Tortor, eget ornare urna. Duis varius tellus eros. Donec odio arcu, rutrum ac rutrum eget, bibendum ac enim. Phasellus hendrerit iaculis purus. Aliquam sit amet molestie odio. Sed commodo dictum consequat aenean in est. Donec odio arcu, rutrum.</p></div></div></li>
+	 <li class="AccordionPanel clearfix colelem" id="u804"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u807-4"><!-- content --><h2>DESCRIPTION</h2></div><div class="AccordionPanelContent clearfix colelem" id="u805"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u806-4"><!-- content --><p><%= @product.description %></p></div></div></li>
+	 <li class="AccordionPanel clearfix colelem" id="u796"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u797-4"><!-- content --><h2>SHIPPING AND RETURN POLICY</h2></div><div class="AccordionPanelContent disn clearfix colelem hidden" id="u798"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u799-4"><!-- content --><p>Sed velit congue viverra. Sed porta mattis luctus. Curabitur feugiat pharetra sem eu iaculis. Phasellus venenatis volutpat arcu id placerat. Aliquam fringilla ligula eu purus lacinia at volutpat nunc malesuada. Nunc a augue ac orci tempus commodo.</p></div></div></li>
+	 <li class="AccordionPanel clearfix colelem" id="u800"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u803-4"><!-- content --><h2>ABOUT THE DESIGNER</h2></div><div class="AccordionPanelContent disn clearfix colelem hidden" id="u801"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u802-4"><!-- content --><p>Tortor, eget ornare urna. Duis varius tellus eros. Donec odio arcu, rutrum ac rutrum eget, bibendum ac enim. Phasellus hendrerit iaculis purus. Aliquam sit amet molestie odio. Sed commodo dictum consequat aenean in est. Donec odio arcu, rutrum.</p></div></div></li>
 	</ul>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		var $desc = $('#u804'),
+		$ship = $('#u796'),
+		$about = $('#u800');
+
+		$desc.on('click', function(){
+			$(this).find('div:not(:first-child)').slideDown();
+			$ship.find('div:not(:first-child)').slideUp();
+			$about.find('div:not(:first-child)').slideUp();
+		});
+
+		$ship.on('click', function(){
+			$(this).find('div:not(:first-child)').slideDown();
+			$desc.find('div:not(:first-child)').slideUp();
+			$about.find('div:not(:first-child)').slideUp();
+		});
+
+		$about.on('click', function(){
+			$(this).find('div:not(:first-child)').slideDown();
+			$desc.find('div:not(:first-child)').slideUp();
+			$ship.find('div:not(:first-child)').slideUp();
+		});
+
+		$('#u739_img').on('click', function(){
+			$('#u722').fadeIn();
+			$('#u722').parent().children('div:not(:nth-child(1))').fadeOut();
+		});
+
+		$('#u741_img').on('click', function(){
+			$('#u724').fadeIn();
+			$('#u724').parent().children('div:not(:nth-child(2))').fadeOut();
+		});
+
+		$('#u743_img').on('click', function(){
+			$('#u726').fadeIn();
+			$('#u726').parent().children('div:not(:nth-child(3))').fadeOut();
+		});
+
+		$('#u745_img').on('click', function(){
+			$('#u728').fadeIn();
+			$('#u728').parent().children('div:not(:nth-child(4))').fadeOut();
+		});
+
+		$('#u747_img').on('click', function(){
+			$('#u730').fadeIn();
+			$('#u730').parent().children('div:not(:nth-child(5))').fadeOut();
+		});
+
+		$('#u749_img').on('click', function(){
+			$('#u732').fadeIn();
+			$('#u732').parent().children('div:not(:nth-child(6))').fadeOut();
+		});
+
+		$('#u751_img').on('click', function(){
+			$('#u734').fadeIn();
+			$('#u734').parent().children('div:not(:nth-child(7))').fadeOut();
+		});
+	});
+
+
+</script>

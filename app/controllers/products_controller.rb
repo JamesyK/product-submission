@@ -15,11 +15,9 @@ class ProductsController < ApplicationController
 
   def create
   	@product = Product.new(product_params)
-  	if @product.save
-      if params[:images]
-        params[:images].each { |i| @product.productimages.create(image: i) }
-      end
-  		redirect_to products_path
+    params[:images].each { |i| @product.productimages.build(image: i) } if params[:images]
+    if @product.save
+  		redirect_to product_path(@product)
   	else
   		render :new
   	end
