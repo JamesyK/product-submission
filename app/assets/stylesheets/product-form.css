@@ -11,7 +11,7 @@
 }
 
 #product_brand {
-	width: 100%;
+	width: 97%;
 	padding-left: 10px;
 	min-height: 24px;
 	border-width: 1px;
@@ -22,7 +22,7 @@
 }
 
 #product_name {
-	width: 100%;
+	width: 97%;
 	padding-left: 10px;
 	min-height: 24px;
 	border-width: 1px;
@@ -33,7 +33,7 @@
 }
 
 #product_price {
-	width: 100%;
+	width: 97%;
 	padding-left: 10px;
 	min-height: 24px;
 	border-width: 1px;
@@ -44,7 +44,7 @@
 }
 
 #product_sku {
-	width: 100%;
+	width: 97%;
 	padding-left: 10px;
 	min-height: 24px;
 	border-width: 1px;
@@ -55,7 +55,7 @@
 }
 
 #product_description {
-	width: 100%;
+	width: 94%;
 	padding: 4px 10px;
 	min-height: 24px;
 	border-width: 1px;
@@ -94,8 +94,8 @@
 	padding: 9px;
 }
 
-#color-destroy {
-	padding: 4px;
+.f-destroy {
+	padding: 4px 8px;
 	border-width: 1px;
 	border-style: solid;
 	border-color: #9DC6D8;
@@ -105,11 +105,22 @@
 	cursor: pointer;
 }
 
-#color-destroy:hover {
+.f-destroy:hover {
 	color: red;
 	font-weight: bold;
 	border-width: 2px;
-	padding: 3px;
+	padding: 3px 7px;
+}
+
+.size-label {
+	width: 85%;
+	padding-left: 10px;
+	min-height: 24px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #9DC6D8;
+	background-color: transparent;
+	border-radius: 10px;
 }
 
 .product-form-div {
@@ -145,7 +156,7 @@ input[type="file"] {
 
 #product-submit {
 	padding: 10px;
-	width: 100%;
+	width: 95%;
 	font-weight: bold;
 	border-radius: 10px;
 	background-color: #9DC6D8;

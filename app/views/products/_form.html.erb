@@ -40,6 +40,12 @@
 	<div class="product-form-btn-div">
 		<%= link_to_add_fields "Add Color", f, :colors, "add-input", "Add a Color" %>
 	</div>
+	<%= f.fields_for :sizes do |builder| %>
+		<%= render "size_fields", f: builder %>
+	<% end %>
+	<div class="product-form-btn-div">
+		<%= link_to_add_fields "Add Size", f, :sizes, "add-input", "Add a Size" %>
+	</div>
 	<div class="product-form-btn-div">
 		<%= f.label :images, "Add Images", class: "paperclip-label" %>
 		<%= file_field_tag "images[]", type: :file, multiple: true, class: "inputfile", id: "product_images" %>

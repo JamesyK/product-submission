@@ -1207,7 +1207,7 @@
 {
 	font-family: '__Bebas_5';
 	src: url("<%= asset_path "bebas.eot" %>");
-	src: url("<%= asset_path "bebasneue-webfont.woff" %>") format('woff');
+	src: local('☺'), url("<%= asset_path "bebasneue-webfont.woff" %>") format('woff');
 	font-weight: 400;
 	font-style: normal;
 }
