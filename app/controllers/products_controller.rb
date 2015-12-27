@@ -10,12 +10,14 @@ class ProductsController < ApplicationController
 
   def new
   	@product = Product.new
-    @product.productimages.build
+    @product.colors.build
   end
 
   def create
   	@product = Product.new(product_params)
     params[:images].each { |i| @product.productimages.build(image: i) } if params[:images]
+    params[:product][:colors_attributes].each { |c| @product.colors.build(color: c) } if params[:product][:colors_attributes]
+    byebug
     if @product.save
   		redirect_to product_path(@product)
   	else
@@ -33,7 +35,7 @@ class ProductsController < ApplicationController
 
   def product_params
   	params.require(:product).permit(
-  		:brand, :name, :sku, :description, :price, :images
+  		:brand, :name, :sku, :description, :price, :images, colors_attributes: [:name, :color]
   	)
   end
 end

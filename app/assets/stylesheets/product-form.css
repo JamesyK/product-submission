@@ -66,8 +66,58 @@
 	overflow: hidden;
 }
 
-.product-form-div {
+.color-name {
+	width: 70%;
+	padding-left: 10px;
+	min-height: 24px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #9DC6D8;
+	background-color: transparent;
+	border-radius: 10px;
+}
+
+.add-input {
+	color: black;
+	text-decoration: none;
 	padding: 10px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #9DC6D8;
+	background-color: transparent;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.add-input:hover {
+	border-width: 2px;
+	padding: 9px;
+}
+
+#color-destroy {
+	padding: 4px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #9DC6D8;
+	background-color: transparent;
+	border-radius: 10px;
+	float: right;
+	cursor: pointer;
+}
+
+#color-destroy:hover {
+	color: red;
+	font-weight: bold;
+	border-width: 2px;
+	padding: 3px;
+}
+
+.product-form-div {
+	margin: 10px;
+}
+
+.product-form-btn-div {
+	margin: 30px 10px;
 }
 
 input[type="file"] {
@@ -89,8 +139,8 @@ input[type="file"] {
 }
 
 .paperclip-label:hover {
-	font-weight: bold;
 	border-width: 2px; 
+	padding: 9px;
 }
 
 #product-submit {
@@ -100,12 +150,12 @@ input[type="file"] {
 	border-radius: 10px;
 	background-color: #9DC6D8;
 	margin-left: 10px;
-	margin-top: 15px;
 	cursor: pointer;
 }
 
 #product-submit:hover {
 	border: 2px black solid;
+	padding: 8px;
 }
 
 .product-form-title {

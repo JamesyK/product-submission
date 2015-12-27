@@ -85,7 +85,7 @@ body
 	body { text-rendering:auto; }
 }
 
-a:link
+/*a:link
 {
 	color: #0000FF;
 	text-decoration: underline;
@@ -107,7 +107,7 @@ a:active
 {
 	color: #EE0000;
 	text-decoration: underline;
-}
+}*/
 
 a.nontext /* used to override default properties of 'a' tag */
 {

@@ -1,7 +1,10 @@
 class Product < ActiveRecord::Base
 
 	has_many :productimages, dependent: :destroy
+	has_many :colors, dependent: :destroy
+
 	accepts_nested_attributes_for :productimages, reject_if: lambda { |a| a[:content].blank? }, allow_destroy: true
+	accepts_nested_attributes_for :colors, reject_if: lambda { |a| a[:content].blank? }, allow_destroy: true
 
 	validates :brand, presence: true
 	validates :name, presence: true
