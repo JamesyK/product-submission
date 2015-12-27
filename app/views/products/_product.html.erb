@@ -1,8 +1,12 @@
 <% @products.each do |p| %>
-	<!-- Image with link -->
-
-	<h2><%= link_to p.name, product_path(p) %></h2>
-	<h3><%= p.brand %></h3>
-	<h3><%= number_to_currency(p.price, unit: "$", precision: 2) %></h3>
-	<h4><%= p.sku %></h4>
+	<%= link_to product_path(p), class: "index-item" do %>
+		<div class="index-inline">
+			<%= image_tag p.productimages.first.image.url(:thumb) %>
+		</div>
+		<div class="index-inline">
+			<h2><%= p.brand %></h2>
+			<h3><%= p.name %></h3>
+			<h3><%= number_to_currency(p.price, unit: "$", precision: 2) %></h3>
+		</div>
+	<% end %>
 <% end %>

@@ -16,7 +16,6 @@ class ProductsController < ApplicationController
 
   def create
   	@product = Product.new(product_params)
-    byebug
     params[:images].each { |i| @product.productimages.build(image: i) } if params[:images]
     params[:product][:colors_attributes].each { |c| @product.colors.build(name: c[1][:name], color: c[1][:color]) } if params[:product][:colors_attributes]
     params[:product][:sizes_attributes].each { |s| @product.sizes.build(label: s[1][:label]) } if params[:product][:sizes_attributes]
