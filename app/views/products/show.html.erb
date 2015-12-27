@@ -41,13 +41,14 @@
 		<p><%= number_to_currency(@product.price, unit: "$", precision: 2) %></p>
 	</div>
 	<div class="clearfix colelem" id="pu792"><!-- group -->
-		<div class="rounded-corners grpelem" id="u792"><!-- simple frame --></div>
-		<div class="rounded-corners grpelem" id="u789"><!-- simple frame --></div>
-		<div class="rounded-corners grpelem" id="u790"><!-- simple frame --></div>
-		<div class="rounded-corners grpelem" id="u791"><!-- simple frame --></div>
+		<% colornum = 789 %>
+		<% @product.colors.each do |i| %>
+			<div class="rounded-corners grpelem" id="u<%= colornum %>" style="background-color:<%= i.color %>"><!-- simple frame --></div>
+			<% colornum += 1 %>
+		<% end %>
 	</div>
 	<div class="clearfix colelem" id="u793-4"><!-- content -->
-		<p>green</p>
+		<p><%= @product.colors.first.name %></p>
 	</div>
 	<div class="clearfix colelem" id="pu794-4"><!-- group -->
 		<div class="rounded-corners clearfix grpelem" id="u794-4"><!-- content -->
@@ -136,6 +137,5 @@
 			$('#u734').parent().children('div:not(:nth-child(7))').fadeOut();
 		});
 	});
-
 
 </script>

@@ -15,9 +15,9 @@ class ProductsController < ApplicationController
 
   def create
   	@product = Product.new(product_params)
-    params[:images].each { |i| @product.productimages.build(image: i) } if params[:images]
-    params[:product][:colors_attributes].each { |c| @product.colors.build(color: c) } if params[:product][:colors_attributes]
     byebug
+    params[:images].each { |i| @product.productimages.build(image: i) } if params[:images]
+    params[:product][:colors_attributes].each { |c| @product.colors.build(name: c[1][:name], color: c[1][:color]) } if params[:product][:colors_attributes]
     if @product.save
   		redirect_to product_path(@product)
   	else

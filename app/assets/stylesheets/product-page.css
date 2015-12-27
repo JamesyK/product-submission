@@ -719,48 +719,44 @@
 	margin-top: -406px;
 }
 
-#u792
+#u789
 {
 	z-index: 111;
 	width: 20px;
-	height: 20px;
-	background-color: #A5DEE4;
+	height: 20px;;
 	border-radius: 15px;
 	position: relative;
 	margin-right: -10000px;
 	margin-top: 1px;
 }
 
-#u789
+#u790
 {
 	z-index: 108;
 	width: 20px;
 	height: 20px;
-	background-color: #C1272D;
 	border-radius: 15px;
 	position: relative;
 	margin-right: -10000px;
 	left: 33px;
 }
 
-#u790
+#u791
 {
 	z-index: 109;
 	width: 20px;
 	height: 20px;
-	background-color: #1B1464;
 	border-radius: 15px;
 	position: relative;
 	margin-right: -10000px;
 	left: 68px;
 }
 
-#u791
+#u792
 {
 	z-index: 110;
 	width: 20px;
 	height: 20px;
-	background-color: #00411A;
 	border-radius: 15px;
 	position: relative;
 	margin-right: -10000px;
@@ -777,7 +773,7 @@
 	font-size: 12px;
 	line-height: 14px;
 	font-family: Helvetica, Helvetica Neue, Arial, sans-serif;
-	margin-left: 820px;
+	margin-left: 717px;
 	top: -382px;
 	margin-bottom: -14px;
 	position: relative;
@@ -1211,7 +1207,7 @@
 {
 	font-family: '__Bebas_5';
 	src: url("<%= asset_path "bebas.eot" %>");
-	src: local('☺'), url("<%= asset_path "bebasneue-webfont.woff" %>") format('woff');
+	src: url("<%= asset_path "bebasneue-webfont.woff" %>") format('woff');
 	font-weight: 400;
 	font-style: normal;
 }
