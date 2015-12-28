@@ -1,2 +1,149 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div>
+	<div class="SlideShowWidget clearfix colelem" id="slideshowu705"><!-- none box -->
+	 	<div class="popup_anchor" id="u721popup">
+			<div class="SlideShowContentPanel clearfix" id="u721"><!-- stack box -->
+				<% idnum = 722 %>
+	 			<% @product.productimages.each do |i| %>
+	 				<div class="SSSlide clip_frame clearfix grpelem" id="u<%= idnum %>"><!-- image -->
+						<div id="u<%= idnum %>_clip">
+			 				<img class="ImageInclude position_content" id="u<%= idnum %>_img" src=<%= i.image.url(:large) %> />
+						</div>
+		 			</div>
+		 			<% idnum += 2 %>
+	 			<% end %>
+			</div>
+		</div>
+
+		<div class="popup_anchor" id="u736popup">
+			<div class="SSSlideLinks clearfix" id="u736"><!-- horizontal-rows box -->
+				<% thumbnum = 739 %>
+				<% @product.productimages.each do |i| %>
+					<div class="SSSlideLink clip_frame grpelem" id="u<%= thumbnum %>"><!-- image -->
+						<img class="block" id="u<%= thumbnum %>_img" src=<%= i.image.url(:thumb) %> />
+					</div>
+					<% thumbnum += 2 %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="Product-Title-01 clearfix colelem" id="u786-4"><!-- content -->
+		<h2><%= @product.brand %></h2>
+	</div>
+	<div class="Product-Title-02 clearfix colelem" id="u788-5"><!-- content -->
+		<p id="u788-3"><span id="u788"><%= @product.name %> </span><span id="u788-2">(<%= @product.sku %>)</span></p>
+	</div>
+	<div class="Product-Title-02 clearfix colelem" id="u787-4"><!-- content -->
+		<p><%= number_to_currency(@product.price, unit: "$", precision: 2) %></p>
+	</div>
+
+	<div class="clearfix colelem" id="pu792"><!-- group -->
+		<% colornum = 789 %>
+		<% @product.colors.each do |i| %>
+			<div class="rounded-corners grpelem" id="u<%= colornum %>" style="background-color:<%= i.color %>"><!-- simple frame --></div>
+			<% colornum += 1 %>
+		<% end %>
+	</div>
+	<div class="clearfix colelem" id="u793-4"><!-- content -->
+		<p><%= @product.colors.first.name %></p>
+	</div>
+
+	<div class="clearfix colelem" id="pu794-4"><!-- group -->
+		<div class="rounded-corners clearfix grpelem" id="u794-4"><!-- content -->
+			<p class="Form-Title-01 size-select" id="u794-2">Click to select a size</p>
+			<% @product.sizes.each do |i| %>
+				<p class="hidden size-select size-option"><%= i.label %></p>
+			<% end %>
+		</div>
+		<div class="clearfix grpelem" id="u813-4"><!-- content -->
+			<p><span id="u813">Size Guide</span></p>
+		</div>
+	</div>
+
+	<div class="clearfix colelem" id="pu959"><!-- group -->
+		<div class="clip_frame grpelem" id="u959"><!-- image -->
+			<img class="block" id="u959_img" src=<%= asset_path "heart2.png" %> alt="" width="25" height="22"/>
+	 	</div>
+	 	<div class="clip_frame grpelem" id="u821"><!-- image -->
+			<img class="block" id="u821_img" src=<%= asset_path "pinterest-2.png" %> alt="" width="25" height="25"/>
+	 	</div>
+	 	<div class="clip_frame grpelem" id="u833"><!-- image -->
+			<img class="block" id="u833_img" src=<%= asset_path "add-to-bag-normal.png" %> alt="" width="100" height="25"/>
+	 	</div>
+	</div>
+
+	<ul class="AccordionWidget clearfix colelem" id="accordionu795"><!-- vertical box -->
+	 <li class="AccordionPanel clearfix colelem" id="u804"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u807-4"><!-- content --><h2>DESCRIPTION</h2></div><div class="AccordionPanelContent clearfix colelem" id="u805"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u806-4"><!-- content --><p><%= @product.description %></p></div></div></li>
+	 <li class="AccordionPanel clearfix colelem" id="u796"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u797-4"><!-- content --><h2>SHIPPING AND RETURN POLICY</h2></div><div class="AccordionPanelContent disn clearfix colelem hidden" id="u798"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u799-4"><!-- content --><p>Sed velit congue viverra. Sed porta mattis luctus. Curabitur feugiat pharetra sem eu iaculis. Phasellus venenatis volutpat arcu id placerat. Aliquam fringilla ligula eu purus lacinia at volutpat nunc malesuada. Nunc a augue ac orci tempus commodo.</p></div></div></li>
+	 <li class="AccordionPanel clearfix colelem" id="u800"><!-- vertical box --><div class="AccordionPanelTab rounded-corners Product-Title-01 clearfix colelem" id="u803-4"><!-- content --><h2>ABOUT THE DESIGNER</h2></div><div class="AccordionPanelContent disn clearfix colelem hidden" id="u801"><!-- group --><div class="Body-Paragraph-Text clearfix grpelem" id="u802-4"><!-- content --><p>Tortor, eget ornare urna. Duis varius tellus eros. Donec odio arcu, rutrum ac rutrum eget, bibendum ac enim. Phasellus hendrerit iaculis purus. Aliquam sit amet molestie odio. Sed commodo dictum consequat aenean in est. Donec odio arcu, rutrum.</p></div></div></li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		var $desc = $('#u804'),
+		$ship = $('#u796'),
+		$about = $('#u800');
+
+		$desc.on('click', function(){
+			$(this).find('div:not(:first-child)').slideDown();
+			$ship.find('div:not(:first-child)').slideUp();
+			$about.find('div:not(:first-child)').slideUp();
+		});
+
+		$ship.on('click', function(){
+			$(this).find('div:not(:first-child)').slideDown();
+			$desc.find('div:not(:first-child)').slideUp();
+			$about.find('div:not(:first-child)').slideUp();
+		});
+
+		$about.on('click', function(){
+			$(this).find('div:not(:first-child)').slideDown();
+			$desc.find('div:not(:first-child)').slideUp();
+			$ship.find('div:not(:first-child)').slideUp();
+		});
+
+		$('#u739_img').on('click', function(){
+			$('#u722').fadeIn();
+			$('#u722').parent().children('div:not(:nth-child(1))').fadeOut();
+		});
+
+		$('#u741_img').on('click', function(){
+			$('#u724').fadeIn();
+			$('#u724').parent().children('div:not(:nth-child(2))').fadeOut();
+		});
+
+		$('#u743_img').on('click', function(){
+			$('#u726').fadeIn();
+			$('#u726').parent().children('div:not(:nth-child(3))').fadeOut();
+		});
+
+		$('#u745_img').on('click', function(){
+			$('#u728').fadeIn();
+			$('#u728').parent().children('div:not(:nth-child(4))').fadeOut();
+		});
+
+		$('#u747_img').on('click', function(){
+			$('#u730').fadeIn();
+			$('#u730').parent().children('div:not(:nth-child(5))').fadeOut();
+		});
+
+		$('#u749_img').on('click', function(){
+			$('#u732').fadeIn();
+			$('#u732').parent().children('div:not(:nth-child(6))').fadeOut();
+		});
+
+		$('#u751_img').on('click', function(){
+			$('#u734').fadeIn();
+			$('#u734').parent().children('div:not(:nth-child(7))').fadeOut();
+		});
+
+		$('#u794-2').on('click', function(){
+			$(this).parent().children().slideDown();
+		});
+
+		$('.size-option').on('click', function(){
+			$(this).siblings('.size-select').toggle('fast');
+		});
+	});
+</script>

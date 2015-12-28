@@ -1,28 +1,16 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+== Product Module
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Info:
+
+Ruby v2.2.3
+Rails v4.2.4
+
+== Getting started:
+
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rails s
+
+View on http://localhost:3000/
