@@ -3,14 +3,12 @@
 	 	<div class="popup_anchor" id="u721popup">
 			<div class="SlideShowContentPanel clearfix" id="u721"><!-- stack box -->
 				<% idnum = 722 %>
-				<% largeImageIndex = 0 %>
 	 			<% @product.productimages.each do |i| %>
 	 				<div class="SSSlide clip_frame clearfix grpelem" id="u<%= idnum %>"><!-- image -->
 						<div id="u<%= idnum %>_clip">
-			 				<img class="ImageInclude position_content l-index-<%= largeImageIndex %>" id="u<%= idnum %>_img" src=<%= i.image.url(:large) %> alt="" data-width="403" data-height="500"/>
+			 				<img class="ImageInclude position_content" id="u<%= idnum %>_img" src=<%= i.image.url(:large) %> />
 						</div>
 		 			</div>
-		 			<% largeImageIndex += 1 %>
 		 			<% idnum += 2 %>
 	 			<% end %>
 			</div>
@@ -19,12 +17,10 @@
 		<div class="popup_anchor" id="u736popup">
 			<div class="SSSlideLinks clearfix" id="u736"><!-- horizontal-rows box -->
 				<% thumbnum = 739 %>
-				<% thumbImageIndex = 0 %>
 				<% @product.productimages.each do |i| %>
 					<div class="SSSlideLink clip_frame grpelem" id="u<%= thumbnum %>"><!-- image -->
-						<img class="block t-index-<%= thumbImageIndex %>" id="u<%= thumbnum %>_img" src=<%= i.image.url(:thumb) %> />
+						<img class="block" id="u<%= thumbnum %>_img" src=<%= i.image.url(:thumb) %> />
 					</div>
-					<% thumbImageIndex += 1 %>
 					<% thumbnum += 2 %>
 				<% end %>
 			</div>
@@ -40,6 +36,7 @@
 	<div class="Product-Title-02 clearfix colelem" id="u787-4"><!-- content -->
 		<p><%= number_to_currency(@product.price, unit: "$", precision: 2) %></p>
 	</div>
+
 	<div class="clearfix colelem" id="pu792"><!-- group -->
 		<% colornum = 789 %>
 		<% @product.colors.each do |i| %>
@@ -50,6 +47,7 @@
 	<div class="clearfix colelem" id="u793-4"><!-- content -->
 		<p><%= @product.colors.first.name %></p>
 	</div>
+
 	<div class="clearfix colelem" id="pu794-4"><!-- group -->
 		<div class="rounded-corners clearfix grpelem" id="u794-4"><!-- content -->
 			<p class="Form-Title-01 size-select" id="u794-2">Click to select a size</p>

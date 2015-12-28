@@ -131,6 +131,10 @@
 	margin: 30px 10px;
 }
 
+.product-form-img-div {
+	margin: 40px 10px;
+}
+
 input[type="file"] {
 	width: 0.1px;
 	height: 0.1px;

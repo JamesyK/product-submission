@@ -19,4 +19,5 @@ class Product < ActiveRecord::Base
 	def price_is_num
 		errors.add(:price, "should be atleast 0.01") if price.nil? || price < 0.01
 	end
+	
 end

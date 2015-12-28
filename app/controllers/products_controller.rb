@@ -26,12 +26,6 @@ class ProductsController < ApplicationController
   	end
   end
 
-  def destroy
-  	@product = Product.find(params[:id])
-  	@product.destroy
-  	redirect_to products_path
-  end
-
   protected
 
   def product_params
@@ -39,4 +33,5 @@ class ProductsController < ApplicationController
   		:brand, :name, :sku, :description, :price, :images, colors_attributes: [:name, :color], sizes_attributes: [:label]
   	)
   end
+  
 end

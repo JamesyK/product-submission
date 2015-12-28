@@ -18,3 +18,5 @@
 
 /public/images/*
 /public/system/*
+
+.byebug_history
