@@ -1,12 +1,12 @@
-== Product Module
+# Product Module
 
 
-== Info:
+## Info:
 
 Ruby v2.2.3
 Rails v4.2.4
 
-== Getting started:
+## Getting started:
 
 bundle install
 
